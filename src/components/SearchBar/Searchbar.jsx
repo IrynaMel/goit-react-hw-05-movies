@@ -1,15 +1,16 @@
 import { useState} from 'react';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation} from "react-router-dom";
 
 export  const  SearchBar =({onSubmit})=>{
     const [query, setQuery] = useState('')
-    // let [searchParams, setSearchParams] = useSearchParams()
+    
 
     const navigate = useNavigate();
     const location = useLocation()
 
     const queryChange = (e)=>{
         setQuery(e.target.value.toLowerCase())
+        
     }
    
     const handleSubmit =(e)=>{
@@ -24,6 +25,7 @@ export  const  SearchBar =({onSubmit})=>{
            search:`query=${query}`
        })
         onSubmit(query);
+        
         
     }
 

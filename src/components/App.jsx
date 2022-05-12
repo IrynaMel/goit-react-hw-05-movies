@@ -9,7 +9,7 @@ import { MovieCreditsView } from '../views/MovieCreditsView';
 import { MovieReviewsView } from '../views/MovieReviewsView';
 
 export const App = () => {
-  // let location = useNavigate()
+  // let location = useLocation()
   // console.log(location)
 
   return (

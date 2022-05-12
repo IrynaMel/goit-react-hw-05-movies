@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getMovie } from 'services/API';
 import { useParams, Outlet, useNavigate, useLocation } from "react-router-dom";
 import { MovieDetailNavigation } from 'components/MovieDetailsNavigation/MovieDetailsNavigation';
+import { Button } from '@mui/material';
 
 
 
@@ -14,13 +15,9 @@ export const MovieView =()=>{
 
 
 
-  const onGoBack = () => {
-    if (location.search === '') {
-        navigate('/');
-        return;
-      }
-      navigate(location.state.from);
-  };
+//   const onGoBack = () => {
+//     navigate( location?.state?.from ?? '/')
+//   };
 
 
 
@@ -36,7 +33,9 @@ export const MovieView =()=>{
 
 return(
     <>
-    <button onClick={onGoBack}>Go back</button>
+    <Button onClick={() => {
+          navigate(location?.state?.from ?? '/');
+        }} variant='contained' sx={{mb: '10px'}}>Go back</Button>
     {movie && <>
     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
     alt ={movie.title}
