@@ -1,18 +1,19 @@
-import { Link} from 'react-router-dom';
+
+import {Li, Div} from './MovieDetailsNavigation.styled'
 
 
 export const MovieDetailNavigation = ()=>{
 
 
     return(
-    <>
-    <p>Additional information</p>
+    <Div>
+    <h3>Additional information</h3>
     <ul>
-       <Link to ='cast' >Casts</Link>
-       <Link to ='reviews'>reviews</Link>
+       <Li to ='cast' >Casts</Li>
+       <Li to ='reviews'>Reviews</Li>
     </ul>
     
-    </>
+    </Div>
     
     )
 }
