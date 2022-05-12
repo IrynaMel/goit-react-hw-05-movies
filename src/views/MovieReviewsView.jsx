@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { getReviews } from "services/API";
-import { useParams, useLocation} from "react-router-dom";
+import { useParams} from "react-router-dom";
 
 export const MovieReviewsView =()=>{
     const [reviews, setReviews] = useState(null)
 
     const { movieId } = useParams();
 
-const location = useLocation()
+
 
 useEffect(()=>{
     getReviews(movieId).then((data)=>
