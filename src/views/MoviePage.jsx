@@ -24,7 +24,7 @@ export const  SearchMovieList =()=>{
        return
      }
      setQuery(location.search.slice(7))},
-   [])
+   [location.search])
   
     
     const onSubmit =(query)=>{
