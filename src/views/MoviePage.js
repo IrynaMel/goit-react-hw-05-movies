@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 export default function SearchMovieList() {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState(null);
 
   const location = useLocation();
-
+  console.log(query);
   // useEffect(() => {
   //   getSearchMovie(query).then(result => {
   //     console.log(result)
@@ -31,7 +31,6 @@ export default function SearchMovieList() {
     setQuery(query);
     setMovies([]);
     getSearchMovie(query).then(result => {
-      console.log(result);
       if (result.results.length === 0) {
         alert('no such movie');
       }
