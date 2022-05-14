@@ -24,7 +24,7 @@ export  const  SearchBar =({onSubmit})=>{
            ...location,
            search:`query=${query}`
        })
-        onSubmit(query);
+        onSubmit(query.trim());
         
         
     }
