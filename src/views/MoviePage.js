@@ -5,19 +5,20 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 export default function SearchMovieList() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(null);
   const [movies, setMovies] = useState(null);
 
   const location = useLocation();
 
-  useEffect(() => {
-    getSearchMovie(query).then(result => {
-      if (result.data.results.length === 0) {
-        alert('no such movie');
-      }
-      setMovies(result.data.results);
-    });
-  }, [query]);
+  // useEffect(() => {
+  //   getSearchMovie(query).then(result => {
+  //     console.log(result)
+  //     if (result.data.results.length === 0) {
+  //       alert('no such movie');
+  //     }
+  //     setMovies(result.data.results);
+  //   });
+  // }, [query]);
 
   useEffect(() => {
     if (!location.search) {
@@ -29,6 +30,13 @@ export default function SearchMovieList() {
   const onSubmit = query => {
     setQuery(query);
     setMovies([]);
+    getSearchMovie(query).then(result => {
+      console.log(result);
+      if (result.results.length === 0) {
+        alert('no such movie');
+      }
+      setMovies(result.results);
+    });
   };
 
   return (
